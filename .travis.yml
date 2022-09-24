@@ -12,7 +12,7 @@ after_success:
   - docker build -t sobh7771/multi-nginx ./nginx
   - docker build -t sobh7771/multi-server ./server
   - docker build -t sobh7771/multi-worker ./worker
-  - docker login -u "$DOCKER_ID" -p "DOCKER_PASSWORD"
+  - docker login -u "$DOCKER_ID" -p "$DOCKER_PASSWORD"
   - docker push sobh7771/multi-client
   - docker push sobh7771/multi-nginx
   - docker push sobh7771/multi-server
