@@ -5,7 +5,7 @@ before_install:
   - docker build -t sobh7771/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run sobh7771/react-test yarn test CI=true
+  - docker run -e CI=true sobh7771/react-test yarn test
 
 after_success:
   - docker build -t sobh7771/multi-client ./client
