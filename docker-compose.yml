@@ -3,10 +3,12 @@ services:
     image: sobh7771/multi-client
     mem_limit: 128m
     hostname: client
+    restart: "no"
   server:
     image: sobh7771/multi-server
     mem_limit: 128m
     hostname: api
+    restart: "no"
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
@@ -19,6 +21,7 @@ services:
     image: sobh7771/multi-worker
     mem_limit: 128m
     hostname: worker
+    restart: "no"
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
@@ -26,5 +29,6 @@ services:
     image: sobh7771/multi-nginx
     mem_limit: 128m
     hostname: nginx
+    restart: "always"
     ports:
       - 80:80
