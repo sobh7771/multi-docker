@@ -1,12 +1,10 @@
 services:
   client:
     image: sobh7771/multi-client
-    restart: no
     mem_limit: 128m
     hostname: client
-  api:
+  server:
     image: sobh7771/multi-server
-    restart: no
     mem_limit: 128m
     hostname: api
     environment:
@@ -19,7 +17,6 @@ services:
       - PGPORT=$PGPORT
   worker:
     image: sobh7771/multi-worker
-    restart: no
     mem_limit: 128m
     hostname: worker
     environment:
@@ -27,7 +24,6 @@ services:
       - REDIS_PORT=$REDIS_PORT
   nginx:
     image: sobh7771/multi-nginx
-    restart: always
     mem_limit: 128m
     hostname: nginx
     ports:
