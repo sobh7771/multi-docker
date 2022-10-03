@@ -1,0 +1,19 @@
+services:
+  client:
+    image: sobh7771/multi-client
+    restart: no
+    mem_limit: 128
+  api:
+    image: sobh7771/multi-server
+    restart: no
+    mem_limit: 128
+  worker:
+    image: sobh7771/multi-worker
+    restart: no
+    mem_limit: 128
+  nginx:
+    image: sobh7771/multi-nginx
+    restart: always
+    mem_limit: 128
+    ports:
+      - 80:80
